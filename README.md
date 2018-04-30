@@ -3,6 +3,6 @@ It is an ontology about Metaphors based on Meta-Net [1] connected to the Framest
 
 Stay tuned for more updates!!!
 
-[1] https://metanet.icsi.berkeley.edu/metanet/ 
-[2] https://lipn.univ-paris13.fr/framester/
+[1] https://metanet.icsi.berkeley.edu/metanet/ <br/>
+[2] https://lipn.univ-paris13.fr/framester/ <br/>
 [3] http://etna.istc.cnr.it/framester2/sparql
