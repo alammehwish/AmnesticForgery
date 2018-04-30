@@ -1,0 +1,293 @@
+# baseURI: https://w3id.org/framester/metanet/schema/
+# imports: https://w3id.org/framester/schema/
+
+@prefix externalmetaphordata: <https://w3id.org/framester/data/metanet/external/> .
+@prefix fn15schema: <https://w3id.org/framester/framenet/tbox/> .
+@prefix fnframe: <https://w3id.org/framester/framenet/abox/frame/> .
+@prefix fnlu: <https://w3id.org/framester/framenet/abox/lu/> .
+@prefix framedata: <https://w3id.org/framester/metanet/frames/> .
+@prefix fschema: <https://w3id.org/framester/schema/> .
+@prefix metanet: <https://w3id.org/framester/metanet/schema/> .
+@prefix metaphordata: <https://w3id.org/framester/metanet/metaphors/> .
+@prefix roledata: <https://w3id.org/framester/metanet/roles/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix semio: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#> .
+
+<https://w3id.org/framester/metanet/schema/>
+  rdf:type owl:Ontology ;
+  rdfs:comment """The ontology schema for MetaNet.""" ;
+  owl:imports <https://w3id.org/framester/schema/> ;
+  owl:versionInfo """1.0, 10-04-2018 by Aldo Gangemi""" .
+
+fn15schema:Frame
+  rdf:type owl:Class .
+
+fn15schema:LexUnit a owl:Class .
+
+metanet:Frame
+  rdf:type owl:Class ;
+  rdfs:subClassOf fschema:Frame .
+
+metanet:FrameType
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#Concept> .
+
+metanet:Language
+  rdf:type owl:Class .
+
+metanet:Metaphor
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description> .
+
+metanet:MetaphorLevel
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#Concept> .
+
+metanet:MetaphorType
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/classification.owl#Concept> .
+
+metanet:MetaphoricRoleMapping
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description> .
+
+metanet:ProvenanceMetaphor
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/description.owl#Description> .
+
+metanet:Role
+  rdf:type owl:Class ;
+  rdfs:subClassOf fschema:UnaryProjection .
+
+metanet:composesWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor .
+
+metanet:frameType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame .
+
+metanet:frequentlyInteractsWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:hasAsTransitiveSubpart
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:hasDescription
+  rdf:type owl:AnnotationProperty .
+
+metanet:hasEntailmentDescription
+  rdf:type owl:AnnotationProperty .
+
+metanet:hasExample
+  rdf:type owl:AnnotationProperty .
+
+metanet:hasExperientialBasis
+  rdf:type owl:AnnotationProperty .
+
+metanet:hasInferenceDescription
+  rdf:type owl:AnnotationProperty .
+
+metanet:hasMapping
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:MetaphoricRoleMapping ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:hasOppositePerspectivesOnTheSameSourceDomainActivity
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:hasSourceFrame
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:hasTargetFrame
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:incorporatesAsAMapping
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:incorporatesAsARole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isAMappingWithin
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isAPerspectiveOn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isASourceSpecialCaseOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isASourceSubcaseOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isASourceSuperordinateFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isASubprocessOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isATargetSubcaseOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isAnEntailmentOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isBothASourceAndTargetSubcaseOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isFrameRelatedTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isInADualRelationshipWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isInAScalarOppositionTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isInCausalRelationWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:isInSomeSourceRelationTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isInSomeTargetRelationTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:isMetaphorRelatedTo
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:makesUseOfFrame
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Frame ;
+  rdfs:range metanet:Frame ;
+  rdfs:subPropertyOf fn15schema:hasFrameRelation .
+
+metanet:makesUseOfMetaphor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Metaphor ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:metaphorInvestigatedFor
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:Language .
+
+metanet:metaphorLevel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:MetaphorLevel .
+
+metanet:metaphorProvenance
+  rdf:type owl:AnnotationProperty .
+
+metanet:metaphorType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:Metaphor ;
+  rdfs:range metanet:MetaphorType .
+
+metanet:sourceRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:MetaphoricRoleMapping ;
+  rdfs:range metanet:Role ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:targetRole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain metanet:MetaphoricRoleMapping ;
+  rdfs:range metanet:Role ;
+  rdfs:subPropertyOf semio:relatedMeaning .
+
+metanet:Cog a metanet:FrameType .
+
+metanet:Composed a metanet:FrameType .
+
+metanet:Primary a metanet:FrameType .
+
+metanet:Simple a metanet:FrameType .
+
+metanet:Entailed a metanet:MetaphorType .
+
+metanet:Composed_or_Complex a metanet:MetaphorType .
+
+metanet:Primary a metanet:MetaphorType .
+
+metanet:General a metanet:MetaphorLevel .
+
+metanet:Specific a metanet:MetaphorLevel .
