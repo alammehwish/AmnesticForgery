@@ -1,2 +1,8 @@
 # AmnesticForgery
-It is an ontology about Metaphors connected to the Framester Linguistic Linked Data Cloud which can be accessed on https://lipn.univ-paris13.fr/framester/ or the main github repository: https://github.com/framester/Framester. The resource is accessible through SPARQL endpoint: http://etna.istc.cnr.it/framester2/sparql. Stay tuned for more updates!!!
+It is an ontology about Metaphors based on Meta-Net [1] connected to the Framester Linguistic Linked Data Cloud which can be accessed on [2] or the main github repository: https://github.com/framester/Framester. The resource is accessible through SPARQL endpoint [3]. 
+
+Stay tuned for more updates!!!
+
+[1] https://metanet.icsi.berkeley.edu/metanet/ 
+[2] https://lipn.univ-paris13.fr/framester/
+[3] http://etna.istc.cnr.it/framester2/sparql
